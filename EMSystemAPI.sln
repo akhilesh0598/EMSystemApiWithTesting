@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EMSystem", "EMSystem\EMSystem.csproj", "{19A354E6-9A37-4E0E-8587-91650B325299}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EMSystem.Test", "EMSystem.Test\EMSystem.Test.csproj", "{40868332-F27F-408A-8DA9-A916F4F5323A}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{19A354E6-9A37-4E0E-8587-91650B325299}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{19A354E6-9A37-4E0E-8587-91650B325299}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{19A354E6-9A37-4E0E-8587-91650B325299}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{19A354E6-9A37-4E0E-8587-91650B325299}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40868332-F27F-408A-8DA9-A916F4F5323A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40868332-F27F-408A-8DA9-A916F4F5323A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40868332-F27F-408A-8DA9-A916F4F5323A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40868332-F27F-408A-8DA9-A916F4F5323A}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {2E3642F5-A154-4B2E-BDA4-90C7AD735293}
+	EndGlobalSection
+EndGlobal

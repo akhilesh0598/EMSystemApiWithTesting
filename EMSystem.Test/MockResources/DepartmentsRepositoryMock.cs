@@ -1,0 +1,32 @@
+﻿using EMSystem.Models.DB;
+using EMSystem.Repositories;
+using EMSystem.Test.MockData;
+using Moq;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace EMSystem.Test.MockResources
+{
+    class DepartmentsRepositoryMock
+    {
+        public static Mock<IDepartmentsRepository> departmentsRepositoryMock = new Mock<IDepartmentsRepository>();
+
+        public static readonly IEnumerable<DepartmentDTO> departmentDTOs = DepartmentDTOData.departmentDTOs;
+        public static void MockResources()
+        {
+            departmentsRepositoryMock.Setup(x => x.GetById(It.IsAny<int>())).Returns((int departmentId) =>
+            {
+                return departmentDTOs.FirstOrDefault(d => d.Id == departmentId);
+                
+            });
+            departmentsRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns((string departmentName) =>
+            {
+                return departmentDTOs.FirstOrDefault(d => d.Name == departmentName);
+            });
+
+        }
+    }
+}
