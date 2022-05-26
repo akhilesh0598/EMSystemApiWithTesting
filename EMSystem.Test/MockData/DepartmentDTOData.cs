@@ -23,7 +23,6 @@ namespace EMSystem.Test.MockData
                 Name="Finance",
                 Address="Mumbai"
             },
-
         };
     }
 }

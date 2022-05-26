@@ -1,4 +1,5 @@
-﻿using EMSystem.Models.DB;
+﻿using EMSystem.Data;
+using EMSystem.Models.DB;
 using EMSystem.Repositories;
 using EMSystem.Test.MockData;
 using Moq;
@@ -14,17 +15,17 @@ namespace EMSystem.Test.MockResources
     {
         public static Mock<IEmployeesRepository> employeeRepositoryMock = new Mock<IEmployeesRepository>();
 
-        public static readonly IEnumerable<EmployeeDTO> employeeDTOs = EmployeeDTOData.employeeDTOs;
-        public static void MockResources()
+        public static void MockResources(EMSystemContext context)
         {
             employeeRepositoryMock.Setup(x => x.Create(It.IsAny<EmployeeDTO>()));
             employeeRepositoryMock.Setup(x => x.GetById(It.IsAny<string>())).Returns((string emailId) =>
               {
-                  return employeeDTOs.FirstOrDefault(e => e.EmailId == emailId);
+                  var res=context.Employees.FirstOrDefault(e => e.EmailId == emailId);
+                  return res;
               });
             employeeRepositoryMock.Setup(x => x.CountByDepartmentName(It.IsAny<string>())).Returns((string departmentName)=>
             {
-                return employeeDTOs.Where(e => e.Department.Name == departmentName).Count();
+                return context.Employees.Where(e => e.Department.Name == departmentName).Count();
             });
 
         }

@@ -1,4 +1,5 @@
-﻿using EMSystem.Models.DB;
+﻿using EMSystem.Data;
+using EMSystem.Models.DB;
 using EMSystem.Repositories;
 using EMSystem.Test.MockData;
 using Moq;
@@ -13,20 +14,16 @@ namespace EMSystem.Test.MockResources
     class DepartmentsRepositoryMock
     {
         public static Mock<IDepartmentsRepository> departmentsRepositoryMock = new Mock<IDepartmentsRepository>();
-
-        public static readonly IEnumerable<DepartmentDTO> departmentDTOs = DepartmentDTOData.departmentDTOs;
-        public static void MockResources()
+        public static void MockResources(EMSystemContext context)
         {
             departmentsRepositoryMock.Setup(x => x.GetById(It.IsAny<int>())).Returns((int departmentId) =>
             {
-                return departmentDTOs.FirstOrDefault(d => d.Id == departmentId);
-                
+                return context.Departments.FirstOrDefault(d => d.Id == departmentId);
             });
             departmentsRepositoryMock.Setup(x => x.GetByName(It.IsAny<string>())).Returns((string departmentName) =>
             {
-                return departmentDTOs.FirstOrDefault(d => d.Name == departmentName);
+                return context.Departments.FirstOrDefault(d => d.Name == departmentName);
             });
-
         }
     }
 }
